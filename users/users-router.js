@@ -50,7 +50,7 @@ function generateToken(user) {
     const payload = {
         subject: user.id,
         username: user.username,
-        roles: ['admin']
+        department: user.department
     };
 
     const options = {
@@ -65,7 +65,8 @@ function generateToken(user) {
 router.get('/users', checkJWT, (req, res) => {
     Users.find()
         .then(users => {
-            res.json(users);
+            const filteredUsers = users.filter(user => user.department === req.decodedToken.department)
+            res.json(filteredUsers);
         })
         .catch(err => res.send(err));
 });
