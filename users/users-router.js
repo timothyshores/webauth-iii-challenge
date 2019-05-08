@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const Users = require('./users-model.js');
+const checkJWT = require('../auth/middleware.js');
 
 router.post('/register', (req, res) => {
     let user = req.body;
@@ -61,7 +62,7 @@ function generateToken(user) {
     return jwt.sign(payload, secret, options)
 }
 
-router.get('/users', restricted, checkRole('student'), (req, res) => {
+router.get('/users', checkJWT, (req, res) => {
     Users.find()
         .then(users => {
             res.json(users);
