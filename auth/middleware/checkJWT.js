@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 
+
 module.exports = (req, res, next) => {
     const token = req.headers.authorization;
     const secret = process.env.JWT_SECRET || 'secret key is stored in .env file before production and .env is included in .gitignore'
