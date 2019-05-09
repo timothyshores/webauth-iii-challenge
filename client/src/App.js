@@ -1,9 +1,10 @@
 import React from 'react';
-import { Route, NavLink, withRouter } from 'react-router-dom';
+import { Route, NavLink, Link } from 'react-router-dom';
 
 import Login from './auth/Login';
 import SignUp from './auth/SignUp';
 import Users from './users/Users';
+import Reminder from './auth/Reminder';
 
 import './App.css';
 
@@ -26,9 +27,10 @@ function App(props) {
                 <a href="/" onClick={logout}>Logout</a>
             </header>
             <main>
-                <Route path="/users" component={Users} />
+                <Route path="/users" component={Users, Reminder} />
                 <Route path="/signup" component={SignUp} />
                 <Route path="/login" component={Login} />
+                <Route exact path="/" component={Reminder} />
             </main>
         </div>
     );

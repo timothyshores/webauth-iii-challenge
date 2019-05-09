@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-
+import { Link } from 'react-router-dom'
 
 class Users extends React.Component {
     state = {
@@ -12,7 +12,7 @@ class Users extends React.Component {
         return (
             <>
                 {this.state.department === ''
-                    ? <h4>Please register or login to view users</h4>
+                    ? null
                     : <h2>List of {this.state.department}s</h2>
                 }
                 {this.state.users.map(u => (

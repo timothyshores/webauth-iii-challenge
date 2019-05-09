@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import '../App.css'
+
 class SignUp extends Component {
     state = {
         username: '',
@@ -39,20 +41,20 @@ class SignUp extends Component {
                         onChange={this.handleChange}
                     />
                     <br />
-                    <label htmlFor="department">Department:</label>
-                    <input
-                        type="text"
-                        name="department"
-                        value={this.state.department}
-                        onChange={this.handleChange}
-                    />
-                    <br />
                     <label htmlFor="password">Password:</label>
                     <input
                         type="password"
                         name="password"
                         onChange={this.handleChange}
                         value={this.state.password}
+                    />
+                    <br />
+                    <label htmlFor="department">Department:</label>
+                    <input
+                        type="text"
+                        name="department"
+                        value={this.state.department}
+                        onChange={this.handleChange}
                     />
                     <div>
                         <button type="submit">Submit</button>

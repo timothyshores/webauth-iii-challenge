@@ -1,4 +1,8 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
+form input {
+    margin: 5px;
+    padding: 2.5px;
+}
