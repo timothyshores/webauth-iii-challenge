@@ -13,11 +13,24 @@ class SignUp extends Component {
         this.setState({ [name]: value });
     };
 
+    submitForm = e => {
+        e.preventDefault();
+        axios
+            .post('http://localhost:5000/api/register', this.state)
+            .then(res => {
+                localStorage.setItem('authorization', res.data.token);
+                this.props.history.push('/users');
+            })
+            .catch(err => {
+                console.error('Unable to sign up', err);
+            });
+    };
+
     render() {
         return (
             <>
                 <h2>Sign Up</h2>
-                <form>
+                <form onSubmit={this.submitForm}>
                     <label htmlFor="username">Username:</label>
                     <input
                         type="text"
@@ -42,7 +55,7 @@ class SignUp extends Component {
                         value={this.state.password}
                     />
                     <div>
-                        <button type="submit">Sign Up</button>
+                        <button type="submit">Submit</button>
                     </div>
                 </form>
             </>
