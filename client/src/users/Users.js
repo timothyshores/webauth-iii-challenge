@@ -11,7 +11,10 @@ class Users extends React.Component {
     render() {
         return (
             <>
-                <h2>List of {this.state.department}s</h2>
+                {this.state.department === ''
+                    ? <h4>Please register or login to view users</h4>
+                    : <h2>List of {this.state.department}s</h2>
+                }
                 {this.state.users.map(u => (
                     <p key={u.id}>{u.username}</p>
                 ))}
