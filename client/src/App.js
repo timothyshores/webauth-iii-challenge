@@ -1,5 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Route, NavLink } from 'react-router-dom';
+
 import './App.css';
 
 function App() {
@@ -7,7 +8,11 @@ function App() {
         <div className="App">
             <header className="App-header">
                 <h1>JSON Web Token Client</h1>
+                <NavLink to="/signup" />
             </header>
+            <main>
+                <Route path="/signup" component={SignUp} />
+            </main>
         </div>
     );
 }
