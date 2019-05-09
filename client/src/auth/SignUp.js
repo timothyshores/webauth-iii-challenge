@@ -8,6 +8,11 @@ class SignUp extends Component {
         password: '',
     };
 
+    handleChange = event => {
+        const { name, value } = event.target;
+        this.setState({ [name]: value });
+    };
+
     render() {
         return (
             <>
@@ -16,7 +21,7 @@ class SignUp extends Component {
                     <label htmlFor="username">Username:</label>
                     <input
                         type="text"
-                        id="username"
+                        name="username"
                         value={this.state.username}
                         onChange={this.handleChange}
                     />
@@ -24,7 +29,7 @@ class SignUp extends Component {
                     <label htmlFor="department">Department:</label>
                     <input
                         type="text"
-                        id="department"
+                        name="department"
                         value={this.state.department}
                         onChange={this.handleChange}
                     />
@@ -32,7 +37,7 @@ class SignUp extends Component {
                     <label htmlFor="password">Password:</label>
                     <input
                         type="password"
-                        id="password"
+                        name="password"
                         onChange={this.handleChange}
                         value={this.state.password}
                     />
