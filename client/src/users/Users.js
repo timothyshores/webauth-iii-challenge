@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom'
+import Reminder from '../auth/Reminder';
 
 class Users extends React.Component {
     state = {
@@ -11,9 +11,10 @@ class Users extends React.Component {
     render() {
         return (
             <>
-                {this.state.department === ''
-                    ? null
-                    : <h2>List of {this.state.department}s</h2>
+                <Reminder />
+                {this.state.department
+                    ? <h2>List of {this.state.department}s</h2>
+                    : null
                 }
                 {this.state.users.map(u => (
                     <p key={u.id}>{u.username}</p>

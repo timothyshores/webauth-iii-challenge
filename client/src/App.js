@@ -27,7 +27,7 @@ function App(props) {
                 <a href="/" onClick={logout}>Logout</a>
             </header>
             <main>
-                <Route path="/users" component={Users, Reminder} />
+                <Route path="/users" component={Users} />
                 <Route path="/signup" component={SignUp} />
                 <Route path="/login" component={Login} />
                 <Route exact path="/" component={Reminder} />
